@@ -1,0 +1,24 @@
+.container {
+  background-color: rgb(199, 215, 209);
+  width: 100vw;
+  height: 100vh;
+}
+.signup-section img {
+  width: 30%;
+  height: 30%;
+  margin: 2rem 0rem;
+}
+.btn-primary{
+    background-color: rgb(90, 229, 176);
+    border: none;
+}
+.btn-primary:hover{
+    background-color: rgb(81, 217, 165);
+    transition: .9s
+    ;
+
+}
+a{
+  text-decoration: none;
+}
+
