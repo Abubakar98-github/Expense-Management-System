@@ -24,10 +24,16 @@
             <div class="form-group">
               <input type="password" class="form-control py-2" id="password" placeholder="Password" />
             </div>
+            <div>
 
-            <button type="submit" onclick="login()" class="btn btn-primary w-100 py-2 mt-5">
+              <a type="submit" onclick="login()" class="btn btn-primary w-100 py-2 mt-5" href="expense.html">
+                Log In
+              </a>
+            </div>
+
+            <!-- <button type="submit" onclick="login()" class="btn btn-primary w-100 py-2 mt-5">
               Login
-            </button>
+            </button> -->
             <a href="signup.html" class="mt-4 y">Create new account</a>
           </form>
         </div>
@@ -42,13 +48,13 @@
 
       let email1 = localStorage.getItem("email1");
       let password1 = localStorage.getItem("password1");
-      let confirmPassword1 = localStorage.getItem("confirmPassword1");
+      // let confirmPassword1 = localStorage.getItem("confirmPassword1");
 
       // console.log(email1);
       // console.log(password1);
 
-      if (email == email1 && password == password1 && password == confirmPassword1) {
-        window.location.href = "index.html";
+      if (email == email1 && password == password1) {
+        window.location.href = "./expense.html";
         alert("Login Successfully Done");
       } else {
         alert("Please enter a valid email and password");

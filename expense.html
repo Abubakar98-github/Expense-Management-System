@@ -22,7 +22,8 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">My Expense Report</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" id="btnClear" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
                         </div>
                         <section class="expense-section mt-4">
                             <div class="container">
@@ -37,12 +38,12 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <label class="mb-2" for="exampleFormControlSelect1">Category</label>
-                                        <select class="form-control" id="exampleFormControlSelect1 categories">
-                                            <option value="1">Choose Category</option>
-                                            <option value="2">Home Rent</option>
-                                            <option value="3">Grocery</option>
-                                            <option value="4">Fuel</option>
-                                            <option value="5">Utility Bill</option>
+                                        <select class="form-control" id="categories">
+                                            <option>Choose Category</option>
+                                            <option>Home Rent</option>
+                                            <option>Grocery</option>
+                                            <option>Fuel</option>
+                                            <option>Utility Bill</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-4">
@@ -91,7 +92,8 @@
                             </div>
                         </section>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="btnClose"
+                                data-bs-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary" id="submit-data">Submit</button>
                         </div>
                     </div>
@@ -114,7 +116,7 @@
                                 <!-- <th scope="col">Sr.</th> -->
                                 <th scope="col">Amount</th>
                                 <th scope="col">Category</th>
-                                <th scope="col">Transaction Date</th>
+                                <th scope="col">Date</th>
                                 <!-- <th scope="col">Transaction Type</th>
                                 <th scope="col">Event</th>
                                 <th scope="col">Start-End-Date</th>
@@ -124,13 +126,14 @@
                             </tr>
                         </thead>
                         <tbody id="expense-table-body">
-                      
-                    </tbody>
+
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </section>
+
 
 
 

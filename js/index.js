@@ -18,6 +18,7 @@ submitData.addEventListener("click", function () {
   let Amount = amount.value;
   let Category = category.value;
   let Date = date.value;
+  console.log(Category);
   // let radioButton = radioButton.value;
   // let eventText = eventText.value;
   // let startEndDate = startEndDate.value;
@@ -37,42 +38,53 @@ submitData.addEventListener("click", function () {
     return;
   }
   // if (radioButton == "") {
-  //   alert("Pleasr select a radio button");
+  //   alert("Please select a radio button");
   //   return;
   // }
   // if (eventText == "") {
-  //   alert("Pleasr enter a text");
+  //   alert("Please enter a text");
   //   return;
   // }
   // if (startEndDate == "") {
-  //   alert("Pleasr select a dates");
+  //   alert("Please select a dates");
   //   return;
   // }
   // if (descriptionText == "") {
-  //   alert("Pleasr select a text");
+  //   alert("Please select a text");
   //   return;
   // }
   // if (file == "") {
-  //   alert("Pleasr upload a file");
+  //   alert("Please upload a file");
   //   return;
   // }
 
+  // expenses.push({
+  //   amount,
+  //   category,
+  //   date,
+  //   // radioButton,
+  //   // eventText,
+  //   // startEndDate,
+  //   // descriptionText,
+  //   // file,
+  // });
+
+  amount.value = "";
+  category.value = "";
+  date.value = "";
+
   expenses.push({
-    Amount,
-    Category,
-    Date,
-    // radioButton,
-    // eventText,
-    // startEndDate,
-    // descriptionText,
-    // file,
+    amount: Amount,
+    category: Category,
+    date: Date,
   });
 
+  
   let newRow = expenseTableBody.insertRow();
 
   let amountCell = newRow.insertCell();
   let categoryCell = newRow.insertCell();
-  let transactionDateCell = newRow.insertCell();
+  let dateCell = newRow.insertCell();
   // let radioButtonCell = newRow.insertCell();
   // let eventTextCell = newRow.insertCell();
   // let startEndDateCell = newRow.insertCell();
@@ -84,7 +96,7 @@ submitData.addEventListener("click", function () {
   deleteButton.textContent = "Delete";
   deleteButton.classList.add("deleteButton");
   deleteButton.addEventListener("click", function () {
-    expense.splice(expense.indexOf(expense), 1);
+    expenses.splice(expenses.indexOf(expense), 1);
 
     expenseTableBody.removeChild(newRow);
   });
@@ -93,7 +105,7 @@ submitData.addEventListener("click", function () {
 
   amountCell.textContent = expense.amount;
   categoryCell.textContent = expense.category;
-  transactionDateCell.textContent = expense.transactionDate;
+  dateCell.textContent = expense.date;
   // radioButtonCell.textContent = expense.radioButton;
   // eventTextCell.textContent = expense.eventText;
   // startEndDateCell.textContent = expense.startEndDate;
@@ -106,7 +118,7 @@ for (let expense of expenses) {
   let newRow = expenseTableBody.insertRow();
   let amountCell = newRow.insertCell();
   let categoryCell = newRow.insertCell();
-  let transactionDateCell = newRow.insertCell();
+  let dateCell = newRow.insertCell();
   // let radioButtonCell = newRow.insertCell();
   // let eventTextCell = newRow.insertCell();
   // let startEndDateCell = newRow.insertCell();
@@ -125,7 +137,7 @@ for (let expense of expenses) {
 
   amountCell.textContent = expense.amount;
   categoryCell.textContent = expense.category;
-  transactionDateCell.textContent = expense.transactionDate;
+  dateCell.textContent = expense.date;
   // radioButtonCell.textContent = expense.radioButton;
   // eventTextCell.textContent = expense.eventText;
   // startEndDateCell.textContent = expense.startEndDate;
