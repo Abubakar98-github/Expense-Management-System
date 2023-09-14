@@ -18,7 +18,7 @@ submitData.addEventListener("click", function () {
   let Amount = amount.value;
   let Category = category.value;
   let Date = date.value;
-  console.log(Category);
+  // console.log(Category);
   // let radioButton = radioButton.value;
   // let eventText = eventText.value;
   // let startEndDate = startEndDate.value;
@@ -79,7 +79,6 @@ submitData.addEventListener("click", function () {
     date: Date,
   });
 
-  
   let newRow = expenseTableBody.insertRow();
 
   let amountCell = newRow.insertCell();
@@ -91,7 +90,15 @@ submitData.addEventListener("click", function () {
   // let descriptionTextCell = newRow.insertCell();
   // let fileCell = newRow.insertCell();
   let deleteCell = newRow.insertCell();
+  // creation button
   let deleteButton = document.createElement("button");
+  // button css
+  // deleteButton.style.backgroundColor = "rgb(90, 229, 176)";
+  deleteButton.style.backgroundColor = "#dc3455";
+  deleteButton.style.color = "#fff";
+  deleteButton.style.border = "none";
+  deleteButton.style.padding = "3px 7px";
+  deleteButton.style.borderRadius = "5px";
 
   deleteButton.textContent = "Delete";
   deleteButton.classList.add("deleteButton");
