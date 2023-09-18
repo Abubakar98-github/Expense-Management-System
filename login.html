@@ -26,7 +26,7 @@
             </div>
             <div>
 
-              <a type="submit" onclick="login()" class="btn btn-primary w-100 py-2 mt-5" href="expense.html">
+              <a type="submit" onclick="login()" class="btn btn-primary w-100 py-2 mt-5">
                 Log In
               </a>
             </div>
@@ -52,6 +52,14 @@
 
       // console.log(email1);
       // console.log(password1);
+
+      if (email === "" || password === "") {
+        alert("Please enter values")
+        return;
+      }
+      else {
+        alert("Congratulation You Are Registered")
+      }
 
       if (email == email1 && password == password1) {
         window.location.href = "./expense.html";

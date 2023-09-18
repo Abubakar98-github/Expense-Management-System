@@ -14,7 +14,7 @@
     <nav class="navbar bg-body-tertiary py-4">
         <div class="container">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-            data-bs-whatever="@getbootstrap">Add Expense</button>
+                data-bs-whatever="@getbootstrap">Add Expense</button>
             <a class="btn btn-primary" href="index.html" role="button">Log Out</a>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -32,7 +32,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="mb-2">Amount</label>
-                                            <input class="form-control form-control" id="amounts" type="number"
+                                            <input class="form-control" id="amounts" type="number"
                                                 placeholder="Enter amount">
                                         </div>
                                     </div>
@@ -48,8 +48,9 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <label class="mb-2 " for="start">Date:</label>
-                                        <div class="">
-                                            <input type="date" id="dates" name="trip-start" value="2023-09-06" />
+                                        <div>
+                                            <input class="form-control" type="date" id="dates" name="trip-start"
+                                                value="2023-09-06" />
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +95,8 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" id="btnClose"
                                 data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="submit-data">Submit</button>
+                            <button type="button" class="btn btn-primary" id="submit-data"
+                                data-bs-dismiss="modal">Submit</button>
                         </div>
                     </div>
                 </div>

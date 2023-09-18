@@ -18,7 +18,6 @@ submitData.addEventListener("click", function () {
   let Amount = amount.value;
   let Category = category.value;
   let Date = date.value;
-  // console.log(Category);
   // let radioButton = radioButton.value;
   // let eventText = eventText.value;
   // let startEndDate = startEndDate.value;
@@ -90,6 +89,7 @@ submitData.addEventListener("click", function () {
   // let descriptionTextCell = newRow.insertCell();
   // let fileCell = newRow.insertCell();
   let deleteCell = newRow.insertCell();
+  let updateCell = newRow.insertCell();
   // creation button
   let deleteButton = document.createElement("button");
   // button css
@@ -100,8 +100,18 @@ submitData.addEventListener("click", function () {
   deleteButton.style.padding = "3px 7px";
   deleteButton.style.borderRadius = "5px";
 
+  let updateButton = document.createElement("button");
+  updateButton.style.backgroundColor = "#6ec787";
+  updateButton.style.color = "#fff";
+  updateButton.style.border = "none";
+  updateButton.style.padding = "4px 7px";
+  updateButton.style.marginLeft = "7px";
+  updateButton.style.borderRadius = "5px";
+
   deleteButton.textContent = "Delete";
+  updateButton.textContent = "Update";
   deleteButton.classList.add("deleteButton");
+  updateButton.classList.add("updateButton");
   deleteButton.addEventListener("click", function () {
     expenses.splice(expenses.indexOf(expense), 1);
 
@@ -119,6 +129,7 @@ submitData.addEventListener("click", function () {
   // descriptionTextCell.textContent = expense.descriptionText;
   // fileCell.textContent = expense.file;
   deleteCell.appendChild(deleteButton);
+  deleteCell.appendChild(updateButton);
 });
 
 for (let expense of expenses) {
