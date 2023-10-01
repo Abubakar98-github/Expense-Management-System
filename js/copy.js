@@ -1,9 +1,9 @@
 let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 let expenseToUpdate = null;
 let expenseToUpdateIndex = null;
-let amount = document.getElementById("amounts");
-let category = document.getElementById("categories");
-let date = document.getElementById("dates");
+let amountInput = document.getElementById("Amount");
+let categorySelect = document.getElementById("category");
+let transactiondate = document.getElementById("transactionDate");
 const saveBtn = document.getElementById("save-btn");
 const expenseTableBody = document.getElementById("expense-table-body");
 
@@ -14,35 +14,31 @@ function removeExpenseFromLocalStorage(expenseIndex) {
   expenses.splice(expenseIndex, 1);
   saveExpensesToLocalStorage();
 }
-
 saveBtn.addEventListener("click", function () {
-  const Amount = amount.value;
-  const Category = category.value;
-  const Date = date.value;
+  const amount = amountInput.value;
+  const category = categorySelect.value;
+  const transactionDate = transactiondate.value;
 
-  if (Amount === "" || Amount <= 0) {
+  if (amount == "" || amount <= 0) {
     alert("Please enter a valid amount");
     return;
   }
-
-  if (Category === "") {
+  if (category == "") {
     alert("Please select a category");
     return;
   }
-
-  if (Date === "") {
+  if (transactionDate == "") {
     alert("Please select a date");
     return;
   }
-  amount.value = "";
-  category.value = "";
-  date.value = "";
-
+  amountInput.value = "";
+  categorySelect.value = "";
+  transactiondate.value = "";
   if (expenseToUpdateIndex !== null) {
-    expenses[expenseToUpdateIndex] = { Amount, Category, Date };
+    expenses[expenseToUpdateIndex] = { amount, category, transactionDate };
     expenseToUpdateIndex = null;
   } else {
-    expenses.push({ Amount, Category, Date });
+    expenses.push({ amount, category, transactionDate });
   }
   saveExpensesToLocalStorage();
   updateExpenseTable();
@@ -63,45 +59,44 @@ function updateExpenseTable() {
     categoryCell.textContent = expense.category;
     transactionDateCell.textContent = expense.transactionDate;
 
+
     const deleteBtn = document.createElement("button");
     deleteBtn.style.color = "#fff";
     deleteBtn.style.backgroundColor = "#DC3455";
     deleteBtn.style.border = "none";
     deleteBtn.style.padding = "3px 7px";
     deleteBtn.style.borderRadius = "5px";
-
     const updateBtn = document.createElement("button");
     updateBtn.style.backgroundColor = "#6EC787";
     updateBtn.style.color = "#fff";
     updateBtn.style.border = "none";
     updateBtn.style.padding = "4px 7px";
+    updateBtn.style.marginLeft = "7px";
     updateBtn.style.borderRadius = "5px";
     updateBtn.style.marginLeft = "-65%";
-
     deleteBtn.textContent = "Delete";
     updateBtn.textContent = "Update";
     deleteBtn.classList.add("delete-btn");
     updateBtn.classList.add("update-btn");
-
     deleteBtn.addEventListener("click", function () {
-      expenses.splice(index, 1);
+      removeExpenseFromLocalStorage(index);
       updateExpenseTable();
     });
 
-    updateBtn.addEventListener("click", function () {
-      amount.value = expense.Amount;
-      category.value = expense.Category;
-      date.value = expense.Date;
 
+
+    updateBtn.addEventListener("click", function () {
+      amountInput.value = expense.amount;
+      categorySelect.value = expense.category;
+      transactiondate.value = expense.transactionDate;
       expenseToUpdateIndex = index;
+      saveBtn.textContent = "Update";
       $("#exampleModal").modal("show");
     });
-
     deleteCell.appendChild(deleteBtn);
     updateCell.appendChild(updateBtn);
   });
 }
-
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.addEventListener("click", function () {
   localStorage.removeItem("email1");
@@ -115,9 +110,10 @@ createBtn.addEventListener("click", function () {
   expenseToUpdateIndex = null;
 });
 
+
 function clearInputFields() {
-  amount.value = "";
-  category.value = "";
-  date.value = "";
+  amountInput.value = "";
+  categorySelect.value = "";
+  transactiondate.value = "";
 }
 updateExpenseTable();

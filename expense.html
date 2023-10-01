@@ -15,10 +15,10 @@
         <div class="container">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
                 data-bs-whatever="@getbootstrap">Add Expense</button>
-            <a class="btn btn-primary" href="index.html" role="button">Log Out</a>
+            <a class="btn btn-primary" id="logoutBtn" href="index.html" role="button">Log Out</a>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
-                <div class="modal-dialog">
+                <div cla ss="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">My Expense Report</h1>
@@ -44,6 +44,7 @@
                                             <option>Grocery</option>
                                             <option>Fuel</option>
                                             <option>Utility Bill</option>
+                                            <!-- <option>Medical</option> -->
                                         </select>
                                     </div>
                                     <div class="col-lg-4">
