@@ -1,9 +1,11 @@
 let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 let expenseToUpdate = null;
 let expenseToUpdateIndex = null;
+
 let amount = document.getElementById("amounts");
 let category = document.getElementById("categories");
 let date = document.getElementById("dates");
+
 const saveBtn = document.getElementById("save-btn");
 const expenseTableBody = document.getElementById("expense-table-body");
 
@@ -59,9 +61,10 @@ function updateExpenseTable() {
     const transactionDateCell = newRow.insertCell();
     const deleteCell = newRow.insertCell();
     const updateCell = newRow.insertCell();
-    amountCell.textContent = expense.amount;
-    categoryCell.textContent = expense.category;
-    transactionDateCell.textContent = expense.transactionDate;
+
+    amountCell.textContent = expense.Amount; // Corrected property name
+    categoryCell.textContent = expense.Category; // Corrected property name
+    transactionDateCell.textContent = expense.Date; // Corrected property name
 
     const deleteBtn = document.createElement("button");
     deleteBtn.style.color = "#fff";
@@ -108,6 +111,7 @@ logoutBtn.addEventListener("click", function () {
   localStorage.removeItem("password1");
   window.location.href = "/login.html";
 });
+
 const createBtn = document.querySelector('[data-bs-target="#exampleModal"]');
 createBtn.addEventListener("click", function () {
   clearInputFields();
@@ -120,4 +124,5 @@ function clearInputFields() {
   category.value = "";
   date.value = "";
 }
+
 updateExpenseTable();
