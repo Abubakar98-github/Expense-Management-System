@@ -95,9 +95,10 @@ function updateExpenseTable() {
       amount.value = expense.Amount;
       category.value = expense.Category;
       date.value = expense.Date;
-
       expenseToUpdateIndex = index;
       $("#exampleModal").modal("show");
+
+      document.getElementById("save-btn").textContent = "Update";
     });
 
     deleteCell.appendChild(deleteBtn);
@@ -124,5 +125,4 @@ function clearInputFields() {
   category.value = "";
   date.value = "";
 }
-
 updateExpenseTable();
